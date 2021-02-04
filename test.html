@@ -14,12 +14,13 @@
     <p id="USD"></p>
     <p id="EUR"></p>
     <p id="GBP"></p>
-
+    <p id="Date"></p>
 
     <script>
         var Dollars = document.getElementById("USD");
         var Euro = document.getElementById("EUR");
         var Livre = document.getElementById("GBP");
+        var date = document.getElementById("Date");
         var result = new XMLHttpRequest();
         var valeurs
         result.open("get", "https://api.coindesk.com/v1/bpi/currentprice.json", true);
@@ -27,7 +28,6 @@
         result.responseType = "json";
         result.onload = function() {
           var Finale = result.response;
-
           valeurs = Finale['bpi']['EUR']['rate'];
           Euro.innerHTML = "Valeur du bitcoin en euros: " + valeurs + " €"
 
@@ -36,6 +36,9 @@
 
           valeurs = Finale['bpi']['GBP']['rate'];
           Livre.innerHTML = "Valeur du bitcoin en livres: " + valeurs + " £" 
+
+          valeurs = Finale['time']['updated'];
+          date.innerHTML = "Date de mise à jour: " + valeurs  
         };
     </script> 
 </body>
