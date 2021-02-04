@@ -3,12 +3,40 @@
 <head>
   <meta charset="utf-8">
   <title>TP</title>
-  <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
-    <script>
 
-        </script> 
+  <center>
+    <h1>Valeur du Bitcoin</h1>
+    <br>
+    <img src="Image.png" width=250>
+    <p id="USD"></p>
+    <p id="EUR"></p>
+    <p id="GBP"></p>
+  </center>
+
+    <script>
+        var Dollars = document.getElementById("USD");
+        var Euro = document.getElementById("EUR");
+        var Livre = document.getElementById("GBP");
+        var result = new XMLHttpRequest();
+        var valeurs
+        result.open("get", "https://api.coindesk.com/v1/bpi/currentprice.json", true);
+        result.send();
+        result.responseType = "json";
+        result.onload = function() {
+          var Finale = result.response;
+
+          valeurs = Finale['bpi']['EUR']['rate'];
+          Euro.innerHTML = "Valeur du bitcoin en euros: " + valeurs + " €"
+
+          valeurs = Finale['bpi']['USD']['rate'];
+          Dollars.innerHTML = "Valeur du bitcoin en USD: " + valeurs + " $"
+
+          valeurs = Finale['bpi']['GBP']['rate'];
+          Livre.innerHTML = "Valeur du bitcoin en livres: " + valeurs + " £" 
+        };
+    </script> 
 </body>
 </html>
