@@ -8,9 +8,11 @@
 <body>
 
 
-    <h1>Valeur du Bitcoin</h1>
-    <br>
+    
+    
     <img src="Image.png" width=250>
+    <br>
+    <h1>Bitcoin Price</h1>
     <p id="USD"></p>
     <p id="EUR"></p>
     <p id="GBP"></p>
@@ -29,16 +31,16 @@
         result.onload = function() {
           var Finale = result.response;
           valeurs = Finale['bpi']['EUR']['rate'];
-          Euro.innerHTML = "Valeur du bitcoin en euros: " + valeurs + " €"
+          Euro.innerHTML = "EUR: " + valeurs + " €"
 
           valeurs = Finale['bpi']['USD']['rate'];
-          Dollars.innerHTML = "Valeur du bitcoin en USD: " + valeurs + " $"
+          Dollars.innerHTML = "USD: " + valeurs + " $"
 
           valeurs = Finale['bpi']['GBP']['rate'];
-          Livre.innerHTML = "Valeur du bitcoin en livres: " + valeurs + " £" 
+          Livre.innerHTML = "BGP: " + valeurs + " £" 
 
           valeurs = Finale['time']['updated'];
-          date.innerHTML = "Date de mise à jour: " + valeurs  
+          date.innerHTML = "Dernière mise à jour: " + valeurs  
         };
     </script> 
 </body>
