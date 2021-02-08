@@ -20,10 +20,7 @@
     <p id="Date"></p>
 
     <script>
-        var Dollars = document.getElementById("USD");
-        var Euro = document.getElementById("EUR");
-        var Livre = document.getElementById("GBP");
-        var date = document.getElementById("Date");
+    
         var result = new XMLHttpRequest();
         var valeurs
         result.open("get", "https://api.coindesk.com/v1/bpi/currentprice.json", true);
@@ -32,16 +29,16 @@
         result.onload = function() {
           var Finale = result.response;
           valeurs = Finale['bpi']['EUR']['rate'];
-          Euro.innerHTML = "EUR: " + valeurs + " €"
+          document.getElementById("EUR").innerHTML = "EUR: " + valeurs + " €"
 
           valeurs = Finale['bpi']['USD']['rate'];
-          Dollars.innerHTML = "USD: " + valeurs + " $"
+          document.getElementById("USD").innerHTML = "USD: " + valeurs + " $"
 
           valeurs = Finale['bpi']['GBP']['rate'];
-          Livre.innerHTML = "BGP: " + valeurs + " £" 
+          document.getElementById("GBP").innerHTML = "BGP: " + valeurs + " £" 
 
           valeurs = Finale['time']['updated'];
-          date.innerHTML = "Dernière mise à jour: " + valeurs  
+          document.getElementById("Date").innerHTML = "Dernière mise à jour: " + valeurs  
         };
     </script> 
 </body>
